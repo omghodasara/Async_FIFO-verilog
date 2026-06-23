@@ -24,7 +24,7 @@ module wptr_full #(
     
     assign waddr = wbin[ADDR_WIDTH-1:0];
     
-    wire wfull_val = (wgray_next == {~w2_rptr[ADDR_WIDTH], w2_rptr[ADDR_WIDTH-1:0]});
+    wire wfull_val = (wgray_next == {~w2_rptr[ADDR_WIDTH], ~w2_rptr[ADDR_WIDTH-1], w2_rptr[ADDR_WIDTH-2:0]});
     
     always @(posedge wclk or negedge wrst_n) begin
         if(!wrst_n) begin
