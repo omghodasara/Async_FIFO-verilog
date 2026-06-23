@@ -23,7 +23,7 @@ module fifomem  #(
     assign rdata = mem[raddr];
     
     always @(posedge wclk) begin
-        if(wclken)
+        if(wclken && !wfull)
             mem[waddr] <= wdata;
     end
     
